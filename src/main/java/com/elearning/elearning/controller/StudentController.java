@@ -1,49 +1,64 @@
 package com.elearning.elearning.controller;
 
-import com.elearning.elearning.entity.Course;
 import com.elearning.elearning.entity.Student;
-import com.elearning.elearning.repository.CourseRepository;
-import com.elearning.elearning.repository.StudentRepository;
-import jakarta.persistence.Id;
+import com.elearning.elearning.service.StudentService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/api/student")
-
-
+@RequiredArgsConstructor
 public class StudentController {
-    private final StudentRepository studentRepository;
-    private final CourseRepository courseRepository;
+    private final StudentService studentService;
 
-    public StudentController(StudentRepository studentRepository,CourseRepository courseRepository){
-        this.studentRepository = studentRepository;
-        this.courseRepository = courseRepository;
-    }
     //create student
     @PostMapping
-    public Student createStudent(@RequestBody Student student){
-        return studentRepository.save(student);
+    public Student createStudent(@Valid @RequestBody Student student){
+        return studentService.createStudent(student);
     }
+
     //Get all students
     @GetMapping
-    public List<Student>getAllStudents(){
-        return studentRepository.findAll();
+    public List<Student> getAllStudents(){
+        return studentService.getAllStudents();
     }
-    @PutMapping("/{studentId}/courses/{courseId}")
+
+    //Get student by ID
+    @GetMapping("/{id}")
+    public Student getStudentById(@PathVariable Long id){
+        return studentService.getStudentById(id);
+    }
+
+    //Update student
+    @PutMapping("/{id}")
+    public Student updateStudent(
+            @PathVariable Long id,
+            @Valid @RequestBody Student student){
+        return studentService.updateStudent(id, student);
+    }
+
+    //Delete student
+    @DeleteMapping("/{id}")
+    public void deleteStudent(@PathVariable Long id){
+        studentService.deleteStudent(id);
+    }
+
+    //Register student to course
+    @PostMapping("/{studentId}/courses/{courseId}")
     public Student registerStudentToCourse(
             @PathVariable Long studentId,
             @PathVariable Long courseId){
-        Student student = studentRepository.findById(studentId)
-                .orElseThrow(() -> new RuntimeException("Student not found"));
-
-        Course course = courseRepository.findById(courseId)
-                .orElseThrow(()-> new RuntimeException("course not found"));
-
-        student.getCourses().add(course);
-        return studentRepository.save(student);
+        return studentService.registerStudentToCourse(studentId, courseId);
     }
 
+    //Unregister student from course
+    @DeleteMapping("/{studentId}/courses/{courseId}")
+    public Student unregisterStudentFromCourse(
+            @PathVariable Long studentId,
+            @PathVariable Long courseId){
+        return studentService.unregisterStudentFromCourse(studentId, courseId);
+    }
 }
