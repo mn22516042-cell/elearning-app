@@ -1,4 +1,4 @@
-package com.elearning.elearning.exception;
+package com.elearning.exception;
 
 public class NotRegisteredException extends RuntimeException {
     public NotRegisteredException(String message) {

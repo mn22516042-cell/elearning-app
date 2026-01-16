@@ -1,4 +1,4 @@
-package com.elearning.elearning.entity;
+package com.elearning.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;

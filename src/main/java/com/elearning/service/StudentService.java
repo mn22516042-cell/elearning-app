@@ -1,12 +1,12 @@
-package com.elearning.elearning.service;
+package com.elearning.service;
 
-import com.elearning.elearning.entity.Course;
-import com.elearning.elearning.entity.Student;
-import com.elearning.elearning.exception.AlreadyRegisteredException;
-import com.elearning.elearning.exception.NotRegisteredException;
-import com.elearning.elearning.exception.ResourceNotFoundException;
-import com.elearning.elearning.repository.CourseRepository;
-import com.elearning.elearning.repository.StudentRepository;
+import com.elearning.entity.Course;
+import com.elearning.entity.Student;
+import com.elearning.exception.AlreadyRegisteredException;
+import com.elearning.exception.NotRegisteredException;
+import com.elearning.exception.ResourceNotFoundException;
+import com.elearning.repository.CourseRepository;
+import com.elearning.repository.StudentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

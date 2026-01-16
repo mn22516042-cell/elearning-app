@@ -1,6 +1,6 @@
-package com.elearning.elearning.repository;
+package com.elearning.repository;
 
-import com.elearning.elearning.entity.Student;
+import com.elearning.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

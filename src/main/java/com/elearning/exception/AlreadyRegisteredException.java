@@ -1,4 +1,4 @@
-package com.elearning.elearning.exception;
+package com.elearning.exception;
 
 public class AlreadyRegisteredException extends RuntimeException {
     public AlreadyRegisteredException(String message) {

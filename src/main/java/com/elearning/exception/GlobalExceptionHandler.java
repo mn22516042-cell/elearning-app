@@ -1,4 +1,4 @@
-package com.elearning.elearning.exception;
+package com.elearning.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,7 @@
-package com.elearning.elearning.controller;
+package com.elearning.controller;
 
-import com.elearning.elearning.entity.Course;
-import com.elearning.elearning.service.CourseService;
+import com.elearning.entity.Course;
+import com.elearning.service.CourseService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

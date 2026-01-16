@@ -1,8 +1,8 @@
-package com.elearning.elearning.service;
+package com.elearning.service;
 
-import com.elearning.elearning.entity.Course;
-import com.elearning.elearning.exception.ResourceNotFoundException;
-import com.elearning.elearning.repository.CourseRepository;
+import com.elearning.entity.Course;
+import com.elearning.exception.ResourceNotFoundException;
+import com.elearning.repository.CourseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
